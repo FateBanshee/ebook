@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.GB.ebook.dao.UserMapper">
+
+	<select id="findByUserName" parameterType="string"
+		resultType="com.GB.ebook.entity.User">
+		select *
+		from user
+		where user_name=#{userName}
+	</select>
+
+	<select id="findByAccountName" parameterType="string"
+		resultType="com.GB.ebook.entity.User">
+		select *
+		from user
+		where account_name=#{accountName}
+	</select>
+
+	<select id="findByEmail" parameterType="string"
+		resultType="com.GB.ebook.entity.User">
+		select *
+		from user
+		where email=#{email}
+	</select>
+
+	<select id="findByPhone" parameterType="string"
+		resultType="com.GB.ebook.entity.User">
+		select *
+		from user
+		where phone=#{userName}
+	</select>
+
+
+
+
+	<insert id="insertUser" parameterType="User">
+		INSERT INTO
+		user(
+		user_name,account_name,phone,email,password,salt,role_id)
+		VALUES
+		(#{userName},#{accountName},#{phone},#{email},#{password},#{salt},"4")
+	</insert>
+
+	<select id="listUser" resultType="User">
+		select * from user
+
+	</select>
+
+	<select id="queryUserByUserName" parameterType="string"
+		resultType="com.GB.ebook.entity.User">
+		select *
+		from user
+		where user_name = #{userName}
+	</select>
+
+	<update id="updateUserRole" parameterType="Information">
+		update
+		user
+		set
+		role_id
+		=
+		#{roleId}
+		where user_name = #{userName}
+	</update>
+
+	<update id="updateIsExist">
+		update user set isExist = -1
+		where user_name = #{userName}
+	</update>
+
+	<update id="updateUserInfo">
+		update user
+		set
+		account_name = #{accountName},
+		password
+		= #{password},
+		email = #{email},
+		phone =
+		#{phone},
+		salt = #{salt}
+		where
+		user_name = #{userName}
+	</update>
+
+
+	<update id="updateUserInfoNPsw">
+		update user
+		set
+		account_name = #{accountName},
+		email =
+		#{email},
+		phone =
+		#{phone}
+		where user_name = #{userName}
+	</update>
+
+	<delete id="deleteUser">
+		delete from User
+		where user_name = #{userName}
+	</delete>
+
+	<!-- SQL语句 namespace命名空间 id UserMapper里面的方法名 parameterType参数列表 resultType 
+		返回的类型 -->
+
+</mapper>

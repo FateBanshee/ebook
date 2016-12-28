@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.GB.ebook.dao.RoleMapper">
+
+
+
+	<select id="ListRole" resultType="Role">
+		select * from role;
+
+	</select>
+
+<!-- 	<insert id="addRole" parameterType="Role"> -->
+<!-- 		INSERT INTO -->
+<!-- 		role(role_name, -->
+<!-- 		sys_account_manage,sys_privilege_setting,sys_parameter_setting,sys_data_restore,server_application_dinner,server_application_property,auditing_application_dinner, -->
+<!-- 		auditing_application_property,management_application_dinner,management_application_property,query_vehicle,query_asset,register_vehicle, -->
+<!-- 		register_asset,use_info_asset,statistics_asset, -->
+<!-- 		evaluation_mangaement_property,evaluation_fill_property,description) -->
+<!-- 		VALUES -->
+<!-- 		(#{roleName},#{sysAccountManage},#{sysPrivilegeSetting},#{sysParameterSetting},#{sysDataRestore} -->
+<!-- 		,#{serverApplicationDinner},#{serverApplicationProperty},#{auditingApplicationDinner} -->
+<!-- 		,#{auditingApplicationProperty},#{managementApplicationDinner},#{managementApplicationProperty},#{queryVehicle} -->
+<!-- 		,#{queryAsset},#{registerVehicle},#{registerAsset},#{useInfoAsset},#{statisticsAsset} -->
+<!-- 		,#{evaluationMangaementProperty},#{evaluationFillProperty},#{description}) -->
+<!-- 	</insert> -->
+
+	<select id="findRoleByName" parameterType="String"
+		resultType="com.GB.ebook.entity.Role">
+		select * from role
+		where role_name = #{roleName}
+
+	</select>
+
+	<update id="updateRole" parameterType="Role">
+		update role
+		set
+		sys_account_manage = #{sysAccountManage},
+		sys_privilege_setting =
+		#{sysPrivilegeSetting},
+
+		personal_accont_manage = #{personalAccontManage},
+		personal_password = #{personalPassword},
+		personal_teacher_approve = #{personalTeacherApprove},
+		register_course=#{registerCourse},
+		personal_course=#{personalCourse},
+		list_course=#{listCourse},
+		query_course=#{queryCourse},
+		description =#{description}
+		where
+		role_name
+		= #{roleName}
+	</update>
+
+	<delete id="deleteRoleByName" parameterType="int">
+		delete from role
+		where role_id = #{roleId}
+	</delete>
+	
+	<select id="findRoleById" parameterType="int"
+		resultType="com.GB.ebook.entity.Role">
+		select * from role
+		where role_id = #{roleId}
+
+	</select>
+
+	<!-- SQL语句 namespace命名空间 id UserMapper里面的方法名 parameterType参数列表 resultType 
+		返回的类型 -->
+
+</mapper>

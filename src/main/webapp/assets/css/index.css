@@ -1,0 +1,52 @@
+/*主页面顶层样式*/
+* {
+    margin: 0;
+    padding: 0;
+}
+.top{
+    width:100%;
+    height:60px;
+    background: url("../img/ebooktop.png") no-repeat ;
+    /*border-radius: 10px;*/
+}
+.top>h1{
+    margin:0;
+    padding:15px 0 0 20px;
+    font-family: "Microsoft YaHei UI";
+    color:#fff;
+}
+.top>a{
+    color:#000;
+    position: relative;
+    left:40%;
+    font-size: 18px;
+}
+.top>a:hover{
+    color:#fff;
+}
+/*天气样式*/
+.wea_time{
+    width:85%;
+    margin-left:200px;
+    padding-left:20px;
+    margin-bottom:5px;
+    border:1px dotted #c0c0c0;
+    height:25px;	
+}
+
+/*登录信息框*/
+
+.top>.account_info{
+ 	float:right;
+ 	padding:20px 3% 0 0;
+    width:700px;
+    height:20px;
+}
+.top>.account_info>a{
+	float:right;
+	margin-left:10px;
+	font-family:"华文细黑";
+    list-style-type: none;
+    color:#fff;
+    font-size:17px;
+}
